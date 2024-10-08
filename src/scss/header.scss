@@ -1,9 +1,152 @@
 //====================================================================================================
+.header {
+	color: $whiteColor;
+	// .header__container
+	&__container {
+		display: flex;
+		align-items: center;
+		gap: rem(30);
+		padding: rem(20) rem(15);
+	}
+
+	// .header__logo
+
+	&__logo {
+		flex: 0 0 auto;
+		@media (any-hover: hover) {
+			&:hover {
+				.header__logo-leaf_dashed {
+					transform: translateX(-7px);
+				}
+				.header__logo-leaf_solid {
+					transform: translateX(8px);
+				}
+			}
+		}
+	}
+	&__logo-leaf_dashed,
+	&__logo-leaf_solid {
+		transition: transform 0.5s ease-out;
+	}
+
+	// .header__menu
+
+	&__menu {
+		flex: 1 1 auto;
+		display: flex;
+		justify-content: center;
+	}
+
+	// .header__actions
+
+	&__actions {
+		flex: 0 1 auto;
+		display: flex;
+		align-items: center;
+		@include adaptiveValue('gap', 30, 10, 1920, 992, 1);
+	}
+
+	// .header__email
+
+	&__email,
+	&__phone {
+		display: flex;
+		align-items: center;
+		gap: rem(8);
+		font-weight: 700;
+		transition: color 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $beigeColor;
+				.header__icon {
+					path {
+						fill: $beigeColor;
+					}
+				}
+			}
+		}
+	}
+
+	// .header__icon
+
+	&__icon {
+		path {
+			transition: fill 0.3s ease 0s;
+			fill: $whiteColor;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				path {
+					fill: $beigeColor;
+				}
+			}
+		}
+	}
+
+	// .header__link
+
+	&__link {
+	}
+
+	// .header__tg
+
+	&__tg {
+	}
+
+	// .header__wa
+
+	&__wa {
+	}
+
+	//.header__button {
+	&__button {
+		@include adaptiveValue('padding-top', 16, 8, 1920, 992, 1);
+		@include adaptiveValue('padding-bottom', 16, 8, 1920, 992, 1);
+		@include adaptiveValue('padding-right', 30, 8, 1920, 992, 1);
+		@include adaptiveValue('padding-left', 30, 8, 1920, 992, 1);
+	}
+}
+.menu {
+	// .menu__icon
+
+	&__icon {
+	}
+
+	// .menu__body
+
+	&__body {
+		display: flex;
+	}
+
+	// .menu__list
+
+	&__list {
+		display: flex;
+
+		gap: rem(30);
+	}
+
+	// .menu__item
+
+	&__item {
+	}
+
+	// .menu__link
+
+	&__link {
+		font-weight: 700;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+
+	&__button {
+	}
+}
 
 //====================================================================================================
 
 //Burger
-/*
+
 .icon-menu {
 	display: none;
 	@media (max-width: $mobile) {
@@ -16,7 +159,7 @@
 		span,
 		&::before,
 		&::after {
-			content: "";
+			content: '';
 			transition: all 0.3s ease 0s;
 			right: 0;
 			position: absolute;
@@ -51,4 +194,3 @@
 		}
 	}
 }
-*/
