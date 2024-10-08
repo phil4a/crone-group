@@ -7,7 +7,7 @@
 		justify-content: space-between;
 		align-items: center;
 		gap: rem(30);
-		padding: rem(20) rem(15);
+		padding: rem(20) rem(20);
 	}
 
 	// .header__logo
@@ -75,7 +75,7 @@
 		justify-content: flex-start;
 		gap: rem(30);
 		z-index: 2;
-		@media (min-width: em(1456)) {
+		@media (min-width: em(1467)) {
 			@include adaptiveValue('gap', 30, 10, 1920, 992, 1);
 		}
 		@media (min-width: $tablet) {
@@ -143,7 +143,7 @@
 		@media (min-width: $mobileSmall) {
 			display: none;
 		}
-		@media (min-width: em(1456)) {
+		@media (min-width: em(1467)) {
 			display: block;
 			color: $whiteColor;
 		}
@@ -155,7 +155,7 @@
 		align-items: center;
 		gap: rem(30);
 		z-index: 2;
-		@media (min-width: em(1456)) {
+		@media (min-width: em(1467)) {
 			@include adaptiveValue('gap', 30, 10, 1920, 992, 1);
 		}
 	}
