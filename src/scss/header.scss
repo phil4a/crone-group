@@ -144,6 +144,12 @@
 		@media (min-width: em(1467)) {
 			display: block;
 			color: $whiteColor;
+			transition: color 0.3s ease 0s;
+			@media (any-hover: hover) {
+				&:hover {
+					color: $beigeColor;
+				}
+			}
 		}
 	}
 
