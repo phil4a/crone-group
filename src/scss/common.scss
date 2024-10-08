@@ -1,1 +1,46 @@
 // Заголовки, общие БЄМ блоки и проче...
+
+.title {
+	font-family: $fontFamily;
+	font-weight: 700;
+	color: $mainColor;
+}
+
+.h1 {
+	@extend .title;
+	@include adaptiveValue('font-size', 52, 36);
+}
+
+.h2 {
+	@extend .title;
+	@include adaptiveValue('font-size', 40, 28);
+}
+
+.h3 {
+	@extend .title;
+	@include adaptiveValue('font-size', 32, 24);
+}
+
+.h4 {
+	@extend .title;
+	@include adaptiveValue('font-size', 24, 20);
+}
+
+.h5 {
+	@extend .title;
+	font-size: rem(18);
+}
+
+.subtitle1 {
+	font-family: $fontFamily;
+	color: $mainColor;
+	font-weight: 400;
+	@include adaptiveValue('font-size', 20, 18);
+}
+
+.subtitle2 {
+	font-family: $fontFamily;
+	color: $mainColor;
+	font-weight: 600;
+	font-size: rem(16);
+}
