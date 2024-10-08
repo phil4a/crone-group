@@ -1,4 +1,5 @@
 // Заголовки, общие БЄМ блоки и проче...
+@use 'sass:color';
 
 .title {
 	font-family: $fontFamily;
@@ -43,4 +44,68 @@
 	color: $mainColor;
 	font-weight: 600;
 	font-size: rem(16);
+}
+
+.button {
+	background-color: $beigeColor;
+	padding: rem(16) rem(30);
+	text-transform: uppercase;
+	font-weight: 800;
+	font-size: rem(16);
+	color: $whiteColor;
+	border-radius: rem(8);
+	transition: background-color 0.3s ease 0s;
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: #d8a270;
+		}
+	}
+	&:active {
+		background-color: #d39b67;
+	}
+	&_outline {
+		border: rem(1) solid $brownColor;
+		background-color: transparent;
+		color: $brownColor;
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: $lightBeige;
+			}
+		}
+		&:active {
+			background-color: $lightBeige;
+		}
+	}
+}
+
+.link {
+	position: relative;
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: rem(-1);
+		left: 0;
+		height: rem(1);
+	}
+	&::before {
+		width: 100%;
+		background-color: $beigeColor;
+	}
+	&::after {
+		width: 0;
+		background-color: $whiteColor;
+		transition: width 0.4s ease 0s;
+		transform: translateX(-50%);
+		left: 50%;
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			&::after {
+				width: 100%;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+	}
 }
