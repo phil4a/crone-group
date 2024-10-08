@@ -20,7 +20,9 @@
 		svg {
 			path {
 				fill: $whiteColor;
-				transition: fill 0.3s ease 0s;
+				transition:
+					fill 0.3s ease 0s,
+					transform 0.3s ease 0s;
 			}
 			.menu-open & {
 				path {
@@ -44,10 +46,6 @@
 		svg {
 			width: 100%;
 		}
-	}
-	&__logo-leaf_dashed,
-	&__logo-leaf_solid {
-		transition: transform 0.5s ease-out;
 	}
 
 	// .header__menu
