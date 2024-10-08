@@ -4,6 +4,7 @@
 	// .header__container
 	&__container {
 		display: flex;
+		justify-content: space-between;
 		align-items: center;
 		gap: rem(30);
 		padding: rem(20) rem(15);
@@ -12,7 +13,24 @@
 	// .header__logo
 
 	&__logo {
+		order: 0;
 		flex: 0 0 auto;
+		z-index: 2;
+		@include adaptiveValue('width', 250, 162, 1120, 480, 1);
+		svg {
+			path {
+				fill: $whiteColor;
+				transition: fill 0.3s ease 0s;
+			}
+			.menu-open & {
+				path {
+					fill: $brownColor;
+				}
+			}
+		}
+		@media (min-width: $tablet) {
+			width: rem(250);
+		}
 		@media (any-hover: hover) {
 			&:hover {
 				.header__logo-leaf_dashed {
@@ -23,6 +41,9 @@
 				}
 			}
 		}
+		svg {
+			width: 100%;
+		}
 	}
 	&__logo-leaf_dashed,
 	&__logo-leaf_solid {
@@ -32,18 +53,44 @@
 	// .header__menu
 
 	&__menu {
-		flex: 1 1 auto;
+		order: 2;
+		flex: 0 0 auto;
 		display: flex;
-		justify-content: center;
+		justify-content: stretch;
+		@media (min-width: $tablet) {
+			justify-content: center;
+			flex: 1 1 auto;
+			order: 1;
+		}
 	}
 
 	// .header__actions
 
 	&__actions {
-		flex: 0 1 auto;
+		order: 0;
+		flex: 0 0 auto;
 		display: flex;
-		align-items: center;
-		@include adaptiveValue('gap', 30, 10, 1920, 992, 1);
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		gap: rem(30);
+		z-index: 2;
+		@media (min-width: em(1456)) {
+			@include adaptiveValue('gap', 30, 10, 1920, 992, 1);
+		}
+		@media (min-width: $tablet) {
+			flex: 0 1 auto;
+
+			justify-content: flex-start;
+			order: 2;
+		}
+		@media (min-width: $mobileSmall) {
+			order: 1;
+			flex: 1 1 auto;
+			align-items: center;
+			flex-direction: row;
+			justify-content: flex-end;
+		}
 	}
 
 	// .header__email
@@ -74,6 +121,11 @@
 			transition: fill 0.3s ease 0s;
 			fill: $whiteColor;
 		}
+		.menu-open & {
+			path {
+				fill: $brownColor;
+			}
+		}
 		@media (any-hover: hover) {
 			&:hover {
 				path {
@@ -86,6 +138,26 @@
 	// .header__link
 
 	&__link {
+		display: block;
+		color: $brownColor;
+		@media (min-width: $mobileSmall) {
+			display: none;
+		}
+		@media (min-width: em(1456)) {
+			display: block;
+			color: $whiteColor;
+		}
+	}
+
+	// .header__socials
+	&__socials {
+		display: flex;
+		align-items: center;
+		gap: rem(30);
+		z-index: 2;
+		@media (min-width: em(1456)) {
+			@include adaptiveValue('gap', 30, 10, 1920, 992, 1);
+		}
 	}
 
 	// .header__tg
@@ -100,6 +172,7 @@
 
 	//.header__button {
 	&__button {
+		order: 3;
 		@include adaptiveValue('padding-top', 16, 8, 1920, 992, 1);
 		@include adaptiveValue('padding-bottom', 16, 8, 1920, 992, 1);
 		@include adaptiveValue('padding-right', 30, 8, 1920, 992, 1);
@@ -109,21 +182,57 @@
 .menu {
 	// .menu__icon
 
+	&__icon-wrapper {
+		display: flex;
+		background-color: $beigeColor;
+		border-radius: rem(8);
+		height: rem(44);
+		width: rem(44);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 2;
+		@media (min-width: $tablet) {
+			display: none;
+		}
+	}
 	&__icon {
 	}
 
 	// .menu__body
 
 	&__body {
+		padding: 0;
 		display: flex;
+		flex-direction: column;
+		gap: rem(30);
+		@media (max-width: $tablet) {
+			position: fixed;
+			overflow-y: scroll;
+			top: 0;
+			right: -100%;
+			width: 100%;
+			height: 100%;
+			padding: rem(96) rem(20) rem(30) rem(20);
+			z-index: 1;
+			background-color: #eee;
+			transition: right 0.3s ease 0s;
+			.menu-open & {
+				right: 0;
+			}
+		}
 	}
 
 	// .menu__list
 
 	&__list {
+		flex: 1 1 auto;
 		display: flex;
-
+		flex-direction: column;
 		gap: rem(30);
+		@media (min-width: $tablet) {
+			flex-direction: row;
+		}
 	}
 
 	// .menu__item
@@ -137,6 +246,10 @@
 		font-weight: 700;
 		text-transform: uppercase;
 		white-space: nowrap;
+		color: $brownColor;
+		@media (min-width: $tablet) {
+			color: $whiteColor;
+		}
 	}
 
 	&__button {
@@ -149,10 +262,11 @@
 
 .icon-menu {
 	display: none;
-	@media (max-width: $mobile) {
+	@media (max-width: $tablet) {
+		-webkit-tap-highlight-color: transparent;
 		display: block;
 		position: relative;
-		width: rem(30);
+		width: rem(24);
 		height: rem(18);
 		cursor: pointer;
 		z-index: 5;
@@ -165,7 +279,7 @@
 			position: absolute;
 			width: 100%;
 			height: rem(2);
-			background-color: #000;
+			background-color: $whiteColor;
 		}
 		&::before {
 			top: 0;
