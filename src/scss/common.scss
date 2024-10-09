@@ -5,6 +5,7 @@
 	font-family: $fontFamily;
 	font-weight: 700;
 	color: $mainColor;
+	line-height: 140%;
 }
 
 .h1 {
@@ -36,6 +37,7 @@
 	font-family: $fontFamily;
 	color: $mainColor;
 	font-weight: 400;
+	line-height: 140%;
 	@include adaptiveValue('font-size', 20, 18);
 }
 
@@ -43,6 +45,7 @@
 	font-family: $fontFamily;
 	color: $mainColor;
 	font-weight: 600;
+	line-height: 140%;
 	font-size: rem(16);
 }
 

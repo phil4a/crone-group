@@ -1,6 +1,17 @@
 //====================================================================================================
 .header {
+	position: absolute;
 	color: $whiteColor;
+	min-width: 100%;
+	&._header-scroll {
+		position: fixed;
+		top: -200%;
+		background-color: transparent;
+	}
+	&._header-show {
+		transition: top 0.3s ease 0s;
+		top: 0;
+	}
 	// .header__container
 	&__container {
 		display: flex;
@@ -8,6 +19,9 @@
 		align-items: center;
 		gap: rem(30);
 		padding: rem(20) rem(20);
+		@media (min-width: $mobile) {
+			padding: rem(20) rem(40);
+		}
 	}
 
 	// .header__logo
@@ -138,10 +152,11 @@
 	&__link {
 		display: block;
 		color: $brownColor;
+		@include adaptiveValue('font-size', 16, 14, 1920, 992, 1);
 		@media (min-width: $mobileSmall) {
 			display: none;
 		}
-		@media (min-width: em(1467)) {
+		@media (min-width: em(1488)) {
 			display: block;
 			color: $whiteColor;
 			transition: color 0.3s ease 0s;
@@ -160,7 +175,7 @@
 		gap: rem(30);
 		z-index: 2;
 		@media (min-width: em(1467)) {
-			@include adaptiveValue('gap', 30, 10, 1920, 992, 1);
+			@include adaptiveValue('gap', 30, 10, 1920, 1488, 1);
 		}
 	}
 
@@ -177,10 +192,11 @@
 	//.header__button {
 	&__button {
 		order: 3;
-		@include adaptiveValue('padding-top', 16, 8, 1920, 992, 1);
-		@include adaptiveValue('padding-bottom', 16, 8, 1920, 992, 1);
-		@include adaptiveValue('padding-right', 30, 8, 1920, 992, 1);
-		@include adaptiveValue('padding-left', 30, 8, 1920, 992, 1);
+		@include adaptiveValue('padding-top', 16, 6, 1920, 992, 1);
+		@include adaptiveValue('padding-bottom', 16, 6, 1920, 992, 1);
+		@include adaptiveValue('padding-right', 30, 6, 1920, 992, 1);
+		@include adaptiveValue('padding-left', 30, 6, 1920, 992, 1);
+		@include adaptiveValue('font-size', 16, 12, 1920, 992, 1);
 	}
 }
 .menu {
