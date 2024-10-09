@@ -1,0 +1,151 @@
+.advantages {
+	// .advantages__container
+	@include sectionPadding;
+	&__container {
+	}
+
+	// .advantages__heading
+
+	&__heading {
+	}
+
+	&__tag {
+	}
+
+	&__title {
+		margin-top: rem(10);
+		margin-bottom: rem(30);
+		@media (min-width: $mobile) {
+			margin-top: rem(12);
+			margin-bottom: rem(40);
+		}
+	}
+
+	// .advantages__content
+
+	&__content {
+		display: flex;
+
+		gap: rem(30);
+		@media (min-width: $mobile) {
+			gap: rem(40);
+		}
+		@media (min-width: $tablet) {
+			gap: rem(20);
+		}
+	}
+}
+
+.content-advantages {
+	// .content-advantages__left
+	&__left,
+	&__right {
+		flex-basis: 50%;
+	}
+
+	&__left {
+		padding-right: rem(25);
+	}
+
+	// .content-advantages__main-text
+
+	&__main-text {
+		margin-bottom: rem(30);
+		@media (min-width: $mobile) {
+			margin-bottom: rem(40);
+		}
+		@media (min-width: $tablet) {
+			margin-bottom: rem(30);
+		}
+	}
+
+	// .content-advantages__bullets
+
+	&__bullets {
+	}
+
+	// .content-advantages__right
+
+	&__right {
+	}
+
+	// .content-advantages__about-text
+
+	&__about-text {
+		p {
+			&:not(:last-child) {
+				margin-bottom: rem(20);
+			}
+		}
+	}
+}
+
+.bullets-advantages {
+	// .bullets-advantages__numbers
+
+	&__numbers {
+		display: flex;
+		gap: rem(20);
+		border-top: 1px solid #61413762;
+		border-bottom: 1px solid #61413762;
+		margin-bottom: rem(20);
+	}
+
+	// .bullets-advantages__item
+
+	&__item {
+		flex: 0 1 33.333%;
+		padding: rem(16) rem(8) rem(20) rem(8);
+		@media (min-width: $tablet) {
+			padding: rem(14) rem(16) rem(18) rem(16);
+		}
+	}
+
+	// .bullets-advantages__number
+
+	&__number {
+		font-size: rem(32);
+		font-weight: 700;
+		color: $brownColor;
+	}
+
+	// .bullets-advantages__text
+
+	&__text {
+	}
+
+	// .bullets-advantages__icons
+
+	&__icons {
+		display: flex;
+		gap: rem(20);
+	}
+}
+
+.icons-bullets {
+	// .icons-bullets__item
+
+	&__item {
+		flex: 0 0 50%;
+		display: flex;
+		gap: rem(12);
+	}
+
+	// .icons-bullets__icon
+
+	&__icon {
+		flex-shrink: 0;
+		width: rem(68);
+		height: rem(68);
+		background-color: $beigeColor;
+		border-radius: rem(4);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	// .icons-bullets__text
+
+	&__text {
+	}
+}

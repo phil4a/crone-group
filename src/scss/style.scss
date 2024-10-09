@@ -72,6 +72,10 @@ body {
 	// Прижимаем footer
 	> main {
 		flex: 1 1 auto;
+		p {
+			line-height: 150%;
+			overflow-wrap: break-word;
+		}
 	}
 	// Фикс для слайдеров
 	> * {
@@ -145,3 +149,4 @@ body {
 // Подключение стилей отдельных страниц
 @import 'home';
 @import 'home/hero';
+@import 'home/advantages';
