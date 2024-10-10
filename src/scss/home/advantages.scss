@@ -25,12 +25,13 @@
 
 	&__content {
 		display: flex;
-
+		flex-direction: column;
 		gap: rem(30);
 		@media (min-width: $mobile) {
 			gap: rem(40);
 		}
 		@media (min-width: $tablet) {
+			flex-direction: row;
 			gap: rem(20);
 		}
 	}
@@ -44,7 +45,9 @@
 	}
 
 	&__left {
-		padding-right: rem(25);
+		@media (min-width: $tablet) {
+			padding-right: rem(25);
+		}
 	}
 
 	// .content-advantages__main-text
@@ -85,10 +88,14 @@
 
 	&__numbers {
 		display: flex;
-		gap: rem(20);
+		flex-direction: column;
 		border-top: 1px solid #61413762;
 		border-bottom: 1px solid #61413762;
 		margin-bottom: rem(20);
+		@media (min-width: $mobile) {
+			flex-direction: row;
+			gap: rem(20);
+		}
 	}
 
 	// .bullets-advantages__item
@@ -96,7 +103,14 @@
 	&__item {
 		flex: 0 1 33.333%;
 		padding: rem(16) rem(8) rem(20) rem(8);
-		@media (min-width: $tablet) {
+
+		&:not(:last-child) {
+			border-bottom: 1px solid #61413762;
+		}
+		@media (min-width: $mobile) {
+			&:not(:last-child) {
+				border-bottom: none;
+			}
 			padding: rem(14) rem(16) rem(18) rem(16);
 		}
 	}
@@ -119,6 +133,11 @@
 	&__icons {
 		display: flex;
 		gap: rem(20);
+		padding: 0 rem(10);
+		flex-direction: column;
+		@media (min-width: $mobile) {
+			flex-direction: row;
+		}
 	}
 }
 
@@ -126,9 +145,11 @@
 	// .icons-bullets__item
 
 	&__item {
-		flex: 0 0 50%;
+		flex: 0 1 50%;
 		display: flex;
+		// align-items: center;
 		gap: rem(12);
+		padding: rem(10) 0;
 	}
 
 	// .icons-bullets__icon
@@ -147,5 +168,6 @@
 	// .icons-bullets__text
 
 	&__text {
+		line-height: 140%;
 	}
 }

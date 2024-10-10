@@ -3,10 +3,11 @@
 	position: absolute;
 	color: $whiteColor;
 	min-width: 100%;
+	transition: background-color 0.8s ease 0s;
 	&._header-scroll {
 		position: fixed;
 		top: 0;
-		background-color: transparent;
+		background-color: #61413756;
 	}
 	&._header-show {
 		transition: top 0.3s ease 0s;
@@ -90,18 +91,18 @@
 		@media (min-width: em(1467)) {
 			@include adaptiveValue('gap', 30, 10, 1920, 992, 1);
 		}
-		@media (min-width: $tablet) {
-			flex: 0 1 auto;
 
-			justify-content: flex-start;
-			order: 2;
-		}
 		@media (min-width: $mobileSmall) {
 			order: 1;
 			flex: 1 1 auto;
 			align-items: center;
 			flex-direction: row;
 			justify-content: flex-end;
+		}
+		@media (min-width: $tablet) {
+			flex: 0 1 auto;
+			justify-content: flex-start;
+			order: 2;
 		}
 	}
 
@@ -192,11 +193,14 @@
 	//.header__button {
 	&__button {
 		order: 3;
-		@include adaptiveValue('padding-top', 16, 6, 1920, 992, 1);
-		@include adaptiveValue('padding-bottom', 16, 6, 1920, 992, 1);
-		@include adaptiveValue('padding-right', 30, 6, 1920, 992, 1);
-		@include adaptiveValue('padding-left', 30, 6, 1920, 992, 1);
-		@include adaptiveValue('font-size', 16, 12, 1920, 992, 1);
+
+		@media (min-width: $tablet) {
+			@include adaptiveValue('padding-top', 16, 6, 1920, 992, 1);
+			@include adaptiveValue('padding-bottom', 16, 6, 1920, 992, 1);
+			@include adaptiveValue('padding-right', 30, 6, 1920, 992, 1);
+			@include adaptiveValue('padding-left', 30, 6, 1920, 992, 1);
+			@include adaptiveValue('font-size', 16, 12, 1920, 992, 1);
+		}
 	}
 }
 .menu {
@@ -235,7 +239,7 @@
 			height: 100%;
 			padding: rem(96) rem(20) rem(30) rem(20);
 			z-index: 1;
-			background-color: #eee;
+			background-color: $whiteColor;
 			transition: right 0.3s ease 0s;
 			.menu-open & {
 				right: 0;
