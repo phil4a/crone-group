@@ -4,6 +4,7 @@
 	color: $whiteColor;
 	min-width: 100%;
 	transition: background-color 0.8s ease 0s;
+	z-index: 2;
 	&._header-scroll {
 		position: fixed;
 		top: 0;
@@ -30,7 +31,7 @@
 	&__logo {
 		order: 0;
 		flex: 0 0 auto;
-		z-index: 2;
+		z-index: 3;
 		@include adaptiveValue('width', 250, 162, 1120, 480, 1);
 		svg {
 			path {
@@ -87,7 +88,7 @@
 		align-items: flex-start;
 		justify-content: flex-start;
 		gap: rem(30);
-		z-index: 2;
+		z-index: 3;
 		@media (min-width: em(1467)) {
 			@include adaptiveValue('gap', 30, 10, 1920, 992, 1);
 		}
@@ -174,7 +175,7 @@
 		display: flex;
 		align-items: center;
 		gap: rem(30);
-		z-index: 2;
+		z-index: 3;
 		@media (min-width: em(1467)) {
 			@include adaptiveValue('gap', 30, 10, 1920, 1488, 1);
 		}
@@ -215,7 +216,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		z-index: 2;
+		z-index: 3;
 		@media (min-width: $tablet) {
 			display: none;
 		}
@@ -238,7 +239,7 @@
 			width: 100%;
 			height: 100%;
 			padding: rem(96) rem(20) rem(30) rem(20);
-			z-index: 1;
+			z-index: 2;
 			background-color: $whiteColor;
 			transition: right 0.3s ease 0s;
 			.menu-open & {
