@@ -3,10 +3,12 @@
 	position: absolute;
 	color: $whiteColor;
 	min-width: 100%;
+	transition: background-color 0.8s ease 0s;
+	z-index: 2;
 	&._header-scroll {
 		position: fixed;
-		top: -200%;
-		background-color: transparent;
+		top: 0;
+		background-color: #61413756;
 	}
 	&._header-show {
 		transition: top 0.3s ease 0s;
@@ -29,7 +31,7 @@
 	&__logo {
 		order: 0;
 		flex: 0 0 auto;
-		z-index: 2;
+		z-index: 3;
 		@include adaptiveValue('width', 250, 162, 1120, 480, 1);
 		svg {
 			path {
@@ -86,22 +88,22 @@
 		align-items: flex-start;
 		justify-content: flex-start;
 		gap: rem(30);
-		z-index: 2;
+		z-index: 3;
 		@media (min-width: em(1467)) {
 			@include adaptiveValue('gap', 30, 10, 1920, 992, 1);
 		}
-		@media (min-width: $tablet) {
-			flex: 0 1 auto;
 
-			justify-content: flex-start;
-			order: 2;
-		}
 		@media (min-width: $mobileSmall) {
 			order: 1;
 			flex: 1 1 auto;
 			align-items: center;
 			flex-direction: row;
 			justify-content: flex-end;
+		}
+		@media (min-width: $tablet) {
+			flex: 0 1 auto;
+			justify-content: flex-start;
+			order: 2;
 		}
 	}
 
@@ -173,7 +175,7 @@
 		display: flex;
 		align-items: center;
 		gap: rem(30);
-		z-index: 2;
+		z-index: 3;
 		@media (min-width: em(1467)) {
 			@include adaptiveValue('gap', 30, 10, 1920, 1488, 1);
 		}
@@ -192,11 +194,14 @@
 	//.header__button {
 	&__button {
 		order: 3;
-		@include adaptiveValue('padding-top', 16, 6, 1920, 992, 1);
-		@include adaptiveValue('padding-bottom', 16, 6, 1920, 992, 1);
-		@include adaptiveValue('padding-right', 30, 6, 1920, 992, 1);
-		@include adaptiveValue('padding-left', 30, 6, 1920, 992, 1);
-		@include adaptiveValue('font-size', 16, 12, 1920, 992, 1);
+
+		@media (min-width: $tablet) {
+			@include adaptiveValue('padding-top', 16, 6, 1920, 992, 1);
+			@include adaptiveValue('padding-bottom', 16, 6, 1920, 992, 1);
+			@include adaptiveValue('padding-right', 30, 6, 1920, 992, 1);
+			@include adaptiveValue('padding-left', 30, 6, 1920, 992, 1);
+			@include adaptiveValue('font-size', 16, 12, 1920, 992, 1);
+		}
 	}
 }
 .menu {
@@ -211,7 +216,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		z-index: 2;
+		z-index: 3;
 		@media (min-width: $tablet) {
 			display: none;
 		}
@@ -234,8 +239,8 @@
 			width: 100%;
 			height: 100%;
 			padding: rem(96) rem(20) rem(30) rem(20);
-			z-index: 1;
-			background-color: #eee;
+			z-index: 2;
+			background-color: $whiteColor;
 			transition: right 0.3s ease 0s;
 			.menu-open & {
 				right: 0;
