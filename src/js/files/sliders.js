@@ -188,6 +188,49 @@ function initSliders() {
 			on: {},
 		});
 	}
+	if (document.querySelector('.steps__slider')) {
+		// Создаем слайдер
+		const swiper = new Swiper('.steps__slider', {
+			modules: [Navigation, Autoplay, EffectFade],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 1,
+			spaceBetween: 0,
+			autoHeight: true,
+			speed: 500,
+
+			effect: 'fade',
+			autoplay: {
+				disableOnInteraction: false,
+			},
+			// События
+			on: {
+				// Обновление класса активного элемента при смене слайда
+				slideChange: function () {
+					const paginationItems = document.querySelectorAll('.step-pagination');
+					paginationItems.forEach((item, index) => {
+						item.classList.toggle('active', index === this.activeIndex);
+					});
+				},
+				init: function () {
+					const paginationItems = document.querySelectorAll('.step-pagination');
+					if (paginationItems.length > 0) {
+						paginationItems[0].classList.add('active');
+					}
+				},
+			},
+		});
+
+		// Переключение слайда при нажатии на шаг
+		const paginationItems = document.querySelectorAll('.step-pagination');
+		paginationItems.forEach((item, index) => {
+			item.addEventListener('click', () => {
+				swiper.slideTo(index); // Переключаем слайд
+				paginationItems.forEach((i) => i.classList.remove('active')); // Удаляем класс active со всех элементов
+				item.classList.add('active'); // Добавляем класс active к текущему элементу
+			});
+		});
+	}
 }
 // Скролл на базе слайдера (по классу swiper_scroll для оболочки слайдера)
 function initSlidersScroll() {
