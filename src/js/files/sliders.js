@@ -188,7 +188,7 @@ function initSliders() {
 			on: {},
 		});
 	}
-	if (document.querySelector('.steps__slider')) {
+	if (window.innerWidth >= 1200 && document.querySelector('.steps__slider')) {
 		// Создаем слайдер
 		const swiper = new Swiper('.steps__slider', {
 			modules: [Navigation, Autoplay, EffectFade],
@@ -201,7 +201,7 @@ function initSliders() {
 
 			effect: 'fade',
 			autoplay: {
-				disableOnInteraction: false,
+				disableOnInteraction: true,
 			},
 			// События
 			on: {
