@@ -1,0 +1,113 @@
+.contacts-info {
+	padding-bottom: rem(40);
+	@include firstSectionPadding;
+	@media (min-width: $mobile) {
+		padding-bottom: rem(48);
+	}
+
+	// .contacts-info__container
+
+	&__container {
+	}
+
+	// .contacts-info__heading
+
+	&__heading {
+		margin-bottom: rem(30);
+		@media (min-width: $mobile) {
+			margin-bottom: rem(40);
+		}
+	}
+
+	// .contacts-info__title
+
+	&__title {
+	}
+
+	// .contacts-info__body
+
+	&__body {
+		display: grid;
+		grid-template-areas:
+			'address'
+			'phone'
+			'mail'
+			'social';
+		column-gap: rem(20);
+		row-gap: rem(32);
+		@media (min-width: $mobile) {
+			grid-template-areas:
+				'address address'
+				'phone mail'
+				'social social';
+		}
+		@media (min-width: $tablet) {
+			grid-template-areas: 'address phone mail social';
+		}
+	}
+
+	// .contacts-info__item
+
+	&__item {
+		// .contacts-info__item_address
+
+		&_address {
+			grid-area: address;
+		}
+
+		// .contacts-info__item_phone
+
+		&_phone {
+			grid-area: phone;
+		}
+
+		// .contacts-info__item_mail
+
+		&_mail {
+			grid-area: mail;
+		}
+
+		// .contacts-info__item_social
+
+		&_social {
+			align-self: flex-end;
+			grid-area: social;
+
+			display: flex;
+			gap: rem(16);
+			@media (min-width: $tablet) {
+				justify-self: flex-end;
+			}
+		}
+	}
+
+	// .contacts-info__tag
+
+	&__tag {
+		display: inline-flex;
+		gap: rem(10);
+		align-items: center;
+		margin-bottom: rem(12);
+	}
+
+	// .contacts-info__text
+
+	&__text {
+		display: block;
+		.h4 {
+			transition: color 0.3s ease 0s;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				.h4 {
+					color: $beigeColor;
+				}
+			}
+		}
+	}
+
+	// .contacts-info__link
+
+	&__link {
+	}
+}

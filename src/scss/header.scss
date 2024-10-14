@@ -10,6 +10,9 @@
 		top: 0;
 		.header__container {
 			padding: rem(8) rem(20);
+			@media (min-width: $mobile) {
+				padding: rem(8) rem(40);
+			}
 		}
 	}
 	&._header-show {
@@ -24,6 +27,7 @@
 			padding 0.3s box-shadow 0.3s;
 		background-color: $whiteColor;
 		color: $mainColor;
+		border-bottom: rem(1) solid $lightBeige;
 		svg {
 			path {
 				fill: $brownColor;
@@ -266,6 +270,9 @@
 			z-index: 2;
 			background-color: $whiteColor;
 			transition: right 0.3s ease 0s;
+			@media (min-width: $mobile) {
+				padding: rem(96) rem(40) rem(30) rem(40);
+			}
 			.menu-open & {
 				right: 0;
 			}

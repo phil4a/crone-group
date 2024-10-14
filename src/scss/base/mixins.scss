@@ -129,3 +129,10 @@
 		padding-top: rem(150);
 	}
 }
+
+@mixin firstSectionPadding {
+	padding-top: rem(108);
+	@media (min-width: $mobile) {
+		padding-top: rem(150);
+	}
+}
