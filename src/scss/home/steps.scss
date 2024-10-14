@@ -1,0 +1,147 @@
+.steps {
+	@include sectionPadding;
+	// .steps__container
+	&__container {
+	}
+
+	// .steps__heading
+
+	&__heading {
+		margin-bottom: rem(30);
+		@media (min-width: $mobile) {
+			margin-bottom: rem(40);
+		}
+	}
+
+	// .steps__title
+
+	&__title {
+	}
+
+	// .steps__body
+
+	&__body {
+		display: flex;
+		gap: rem(20);
+		flex-direction: column;
+		@media (min-width: $tablet) {
+			flex-direction: row;
+		}
+	}
+
+	// .steps__slider
+
+	&__slider {
+		flex: 1 1 50%;
+		display: none;
+		@media (min-width: $tablet) {
+			display: block;
+		}
+	}
+
+	// .steps__wrapper
+
+	&__wrapper {
+	}
+
+	// .steps__slide
+
+	&__slide {
+		border-radius: rem(8);
+	}
+
+	&__image {
+		border-radius: rem(8);
+		width: 100%;
+	}
+
+	// .steps__pagination
+
+	&__pagination {
+		flex: 1 1 50%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	// .steps__step
+
+	&__step {
+		&.active {
+			.step-pagination__wrapper {
+				background-color: $lightBeige;
+				.step-pagination__number {
+					background-color: $beigeColor;
+					color: $whiteColor;
+				}
+			}
+		}
+	}
+}
+
+.step-pagination {
+	min-height: rem(70);
+	border-bottom: 1px solid #61413762;
+	&:first-child {
+		border-top: 1px solid #61413762;
+	}
+	flex: 1 0 auto;
+	display: flex;
+	align-items: center;
+	cursor: auto;
+
+	transition: all 0.3s ease 0s;
+	@media (any-hover: hover) {
+		&:hover {
+			.step-pagination__number {
+				background-color: $beigeColor;
+				color: $whiteColor;
+			}
+			.step-pagination__wrapper {
+				background-color: $lightBeige;
+			}
+		}
+	}
+	@media (min-width: $tablet) {
+		cursor: pointer;
+		border-bottom: none;
+		&:first-child {
+			border-top: none;
+		}
+	}
+
+	&__wrapper {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		gap: rem(40);
+		align-items: flex-start;
+		padding: rem(20) rem(8);
+		border-radius: rem(8);
+		transition: background-color 0.3s ease 0s;
+		@media (min-width: $mobile) {
+			padding: rem(20) rem(10);
+		}
+		@media (min-width: $tablet) {
+			align-items: center;
+			padding: rem(0) rem(20);
+		}
+	}
+
+	// .steps-pagination__name
+	&__number {
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: rem(8);
+		padding: rem(4) 0;
+		color: $brownColor;
+		width: rem(80);
+		background-color: $lightBeige;
+		transition:
+			background-color 0.3s ease 0s,
+			color 0.3s ease 0s;
+	}
+	&__name {
+	}
+}
