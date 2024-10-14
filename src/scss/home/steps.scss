@@ -1,5 +1,13 @@
 .steps {
+	padding-bottom: rem(80);
+
 	@include sectionPadding;
+	@media (min-width: $mobile) {
+		padding-bottom: rem(100);
+	}
+	@media (min-width: $tablet) {
+		padding-bottom: rem(150);
+	}
 	// .steps__container
 	&__container {
 	}

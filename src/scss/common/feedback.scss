@@ -1,0 +1,53 @@
+.feedback {
+	padding: rem(64) 0 rem(80) 0;
+	background-color: $lightBeige;
+	&__container {
+		display: flex;
+		flex-direction: column;
+		gap: rem(30);
+		@media (min-width: $mobile) {
+			gap: rem(40);
+		}
+		@media (min-width: $tablet) {
+			gap: rem(20);
+			flex-direction: row;
+		}
+	}
+
+	&__heading {
+		flex: 0 0 50%;
+	}
+
+	&__title {
+		margin-bottom: rem(24);
+		@media (min-width: $mobile) {
+			margin-bottom: rem(30);
+		}
+	}
+
+	&__text {
+		max-width: rem(500);
+	}
+
+	&__form {
+		flex: 1 1 auto;
+		display: flex;
+		gap: rem(16);
+		flex-direction: column;
+		@media (min-width: $mobile) {
+			gap: rem(20);
+		}
+	}
+
+	&__input {
+		width: 100%;
+		border-radius: rem(8);
+		padding: rem(13) rem(20);
+	}
+
+	&__button {
+		@media (min-width: $mobileSmall) {
+			max-width: rem(220);
+		}
+	}
+}
