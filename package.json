@@ -70,6 +70,7 @@
 		"webpack-stream": "latest"
 	},
 	"dependencies": {
+		"gsap": "^3.12.5",
 		"simplebar": "latest"
 	}
 }
