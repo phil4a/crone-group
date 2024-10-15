@@ -3,23 +3,51 @@
 	position: absolute;
 	color: $whiteColor;
 	min-width: 100%;
-	transition: background-color 0.8s ease 0s;
 	z-index: 2;
+
 	&._header-scroll {
 		position: fixed;
 		top: 0;
-		background-color: #61413756;
+		.header__container {
+			padding: rem(8) rem(20);
+			@media (min-width: $mobile) {
+				padding: rem(8) rem(40);
+			}
+		}
 	}
 	&._header-show {
 		transition: top 0.3s ease 0s;
 		top: 0;
 	}
+	&.header-light {
+		box-shadow: 0px 5px 16px 0px rgba(241, 236, 231, 0.4);
+		transition:
+			background-color 0.3s,
+			color 0.3s,
+			padding 0.3s box-shadow 0.3s;
+		background-color: $whiteColor;
+		color: $mainColor;
+		border-bottom: rem(1) solid $lightBeige;
+		svg {
+			path {
+				fill: $brownColor;
+			}
+		}
+		.header__link {
+			color: $mainColor;
+		}
+		.menu__link {
+			color: $mainColor;
+		}
+	}
+
 	// .header__container
 	&__container {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		gap: rem(30);
+		transition: padding 0.3s ease 0s;
 		padding: rem(20) rem(20);
 		@media (min-width: $mobile) {
 			padding: rem(20) rem(40);
@@ -242,6 +270,9 @@
 			z-index: 2;
 			background-color: $whiteColor;
 			transition: right 0.3s ease 0s;
+			@media (min-width: $mobile) {
+				padding: rem(96) rem(40) rem(30) rem(40);
+			}
 			.menu-open & {
 				right: 0;
 			}
@@ -272,6 +303,7 @@
 		text-transform: uppercase;
 		white-space: nowrap;
 		color: $brownColor;
+		transition: all 0.3s ease 0s;
 		@media (min-width: $tablet) {
 			color: $whiteColor;
 		}

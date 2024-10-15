@@ -147,6 +147,7 @@ body {
 @import 'footer';
 
 // Подключение стилей отдельных страниц
+//home
 @import 'home';
 @import 'home/hero';
 @import 'home/advantages';
@@ -154,3 +155,7 @@ body {
 @import 'home/projects';
 @import 'home/steps';
 @import 'common/feedback';
+
+//contacts
+@import 'contacts/info';
+@import 'contacts/map';
