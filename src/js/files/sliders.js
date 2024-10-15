@@ -1,3 +1,4 @@
+import { isMobile } from './functions.js';
 /*
 Документация по работе в шаблоне: 
 Документация слайдера: https://swiperjs.com/
@@ -10,6 +11,7 @@
 import Swiper from 'swiper';
 import {
 	Navigation,
+	Pagination,
 	Scrollbar,
 	FreeMode,
 	Autoplay,
@@ -230,6 +232,67 @@ function initSliders() {
 				item.classList.add('active'); // Добавляем класс active к текущему элементу
 			});
 		});
+	}
+
+	if (document.querySelectorAll('.project-card__slider').length) {
+		const sliders = document.querySelectorAll('.project-card__slider');
+
+		sliders.forEach((slider) => {
+			const projectsSlider = new Swiper(slider, {
+				// Указываем скласс нужного слайдера
+				// Подключаем модули слайдера
+				// для конкретного случая
+				modules: [Autoplay, Pagination, EffectFade],
+				observer: true,
+				observeParents: true,
+				slidesPerView: 'auto',
+				spaceBetween: 0,
+				// autoHeight: true,
+				speed: 800,
+
+				//touchRatio: 0,
+				//simulateTouch: false,
+				//loop: true,
+				//preloadImages: false,
+				//lazy: true,
+
+				// Эффекты
+				effect: 'fade',
+				autoplay: {
+					delay: 3000,
+					disableOnInteraction: false,
+				},
+
+				// Пагинация
+
+				pagination: {
+					el: '.project-card__pagination',
+					clickable: true,
+					bulletClass: 'project-card__bullet',
+					bulletActiveClass: 'project-card__bullet_active',
+				},
+
+				on: {
+					init: function () {
+						if (!isMobile.any()) this.autoplay.stop();
+					},
+					slideChange: function () {
+						this.params.autoplay.delay = 800;
+					},
+				},
+			});
+			slider.addEventListener('mouseenter', () => {
+				projectsSlider.params.autoplay.delay = 100;
+				projectsSlider.autoplay.start();
+			});
+			slider.addEventListener('mouseleave', () => {
+				projectsSlider.autoplay.stop();
+			});
+		});
+	}
+	if (document.querySelector('.project-card__slider')) {
+		// Указываем скласс нужного слайдера
+		// Создаем слайдер
 	}
 }
 // Скролл на базе слайдера (по классу swiper_scroll для оболочки слайдера)
