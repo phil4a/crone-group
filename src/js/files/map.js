@@ -1,52 +1,78 @@
-if (document.querySelector('#contacts-map')) {
-	function map(n) {
-		ymaps.ready(init);
-		function init() {
-			// Создание карты.
-			var myMap = new ymaps.Map('contacts-map', {
-				// Координаты центра карты.
-				// Порядок по умолчанию: «широта, долгота».
-				// Чтобы не определять координаты центра карты вручную,
-				// воспользуйтесь инструментом Определение координат.
-				controls: [],
-				center: [55.030668, 82.895424],
-				// Уровень масштабирования. Допустимые значения:
-				// от 0 (весь мир) до 19.
-				zoom: 16,
-			});
+import { Loader } from '@googlemaps/js-api-loader';
 
-			let myPlacemark = new ymaps.Placemark(
-				[55.030668, 82.895424],
+const loader = new Loader({
+	apiKey: 'AIzaSyAppTefFqt0HNEG95Ci0LG88wRULXIRbyM',
+	version: 'weekly',
+	libraries: ['places'],
+});
+
+const contactsMapOptions = {
+	center: {
+		lat: 55.030596,
+		lng: 82.895268,
+	},
+	zoom: 16,
+	mapId: '7528d041054a80e2',
+	disableDefaultUI: true,
+	zoomControl: false,
+	mapTypeControl: false,
+	scaleControl: false,
+	streetViewControl: false,
+	rotateControl: false,
+	fullscreenControl: false,
+};
+
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+if (isMobile) {
+	contactsMapOptions.zoom = 15;
+}
+
+if (document.getElementById('contacts-map')) {
+	const importMaps = loader.importLibrary('maps');
+	const importMarker = loader.importLibrary('marker');
+
+	Promise.all([importMaps, importMarker])
+		.then(([{ Map, InfoWindow }, { AdvancedMarkerElement }]) => {
+			const map = new Map(document.getElementById('contacts-map'), contactsMapOptions);
+
+			const officeMarkers = [
 				{
-					balloonContentHeader: 'Крона Групп',
-					balloonContentBody: 'Новосибирск, ​Кубановская, 1/1, 206 офис, 2 этаж',
+					lat: 55.030596,
+					lng: 82.895268,
+					title: 'г. Новосибирск, Кубановская улица, 1/1, офис 206',
 				},
-				{
-					// Опции.
-					hasBalloon: true,
-					hideIconOnBalloonOpen: false,
-					// Необходимо указать данный тип макета.
-					iconLayout: 'default#imageWithContent',
-					// Своё изображение иконки метки.
-					iconImageHref: 'img/icons/marker.svg',
-					// Размеры метки.
-					iconImageSize: [52, 64],
-					// Смещение левого верхнего угла иконки относительно
-					// её "ножки" (точки привязки).
-					iconImageOffset: [-26, -32],
-					// Смещение слоя с содержимым относительно слоя с картинкой.
-					iconContentOffset: [0, 0],
-				},
-			);
+			];
 
-			myMap.geoObjects.add(myPlacemark);
+			officeMarkers.forEach(({ lat, lng, title }) => {
+				const markerImg = document.createElement('img');
+				markerImg.classList.add('about-map__marker');
+				markerImg.src = './img/icons/marker.svg';
 
-			myMap.behaviors.disable('scrollZoom');
-			myMap.behaviors.disable('drag');
-			myMap.controls.add('zoomControl', {
-				size: 'medium',
+				// Создаем маркер с содержимым (custom HTML элементом)
+				const marker = new AdvancedMarkerElement({
+					position: { lat, lng },
+					content: markerImg,
+					map: map,
+					title: title,
+				});
+
+				// Создаем InfoWindow с содержимым
+				const infoWindow = new InfoWindow({
+					content: `
+							<div class="contacts-map__info-window">
+									<h5 class="h5 contacts-map__window-title">Крона Групп</h5>
+									<p class="contacts-map__window-text">${title}</p>
+							</div>`,
+				});
+
+				// Привязываем обработчик клика к самому маркеру, а не к его содержимому
+				marker.addListener('click', () => {
+					infoWindow.open(map, marker);
+				});
 			});
-		}
-	}
-	map();
+		})
+		.catch((e) => {
+			console.log(e);
+		});
 }
