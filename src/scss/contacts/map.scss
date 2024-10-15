@@ -1,0 +1,9 @@
+.contacts-map {
+	height: rem(350);
+	@media (min-width: $mobile) {
+		height: rem(500);
+	}
+	@media (min-width: $tablet) {
+		height: rem(750);
+	}
+}
