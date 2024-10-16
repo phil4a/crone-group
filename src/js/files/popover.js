@@ -4,6 +4,11 @@ import { computePosition, offset, flip, shift, autoUpdate } from '@floating-ui/d
 document.addEventListener('DOMContentLoaded', () => {
 	const sortButton = document.getElementById('sortButton');
 	const sortPopover = document.getElementById('sortPopover');
+
+	if (!sortButton || !sortPopover) {
+		return;
+	}
+
 	let cleanupAutoUpdate = null;
 
 	// Функция для отображения поповера
@@ -78,13 +83,15 @@ document.addEventListener('DOMContentLoaded', () => {
 	// Обработчики кликов на элементах поповера
 	const sortItems = sortPopover.querySelectorAll('.list-sort__item');
 
-	sortItems.forEach((item) => {
-		item.addEventListener('click', function () {
-			sortButton.textContent = this.textContent; // Обновляем текст кнопки сортировки
-			hidePopover();
-			// Здесь можно добавить логику сортировки проектов
+	if (sortItems.length) {
+		sortItems.forEach((item) => {
+			item.addEventListener('click', function () {
+				sortButton.textContent = this.textContent; // Обновляем текст кнопки сортировки
+				hidePopover();
+				// Здесь можно добавить логику сортировки проектов
+			});
 		});
-	});
+	}
 
 	// Закрываем поповер при выгрузке страницы
 	window.addEventListener('beforeunload', () => {
