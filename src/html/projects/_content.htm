@@ -9,13 +9,21 @@
 			<div class="projects__list list-projects">
 				<div class="list-projects__sort">
 					<div class="list-projects__sort-buttons">
-						<button class="list-projects__sort-button">Частные дома</button>
+						<button class="list-projects__sort-button list-projects__sort-button_active">
+							Частные дома
+						</button>
 						<button class="list-projects__sort-button">Коммерческая недвижимость</button>
 						<button class="list-projects__sort-button">Бани</button>
 					</div>
 					<div class="list-projects__sort-alphabetical alphabet-sort">
 						<div class="alphabet-sort__title">Сортировка:</div>
-						<div class="alphabet-sort__checked">по названию(А-Я)</div>
+						<button class="alphabet-sort__checked" id="sortButton">по названию(А-Я)</button>
+						<div class="alphabet-sort__list list-sort" id="sortPopover">
+							<button class="list-sort__item">по названию(А-Я)</button>
+							<button class="list-sort__item">по названию(Я-А)</button>
+							<button class="list-sort__item">сначала с большей площадью (м²)</button>
+							<button class="list-sort__item">сначала с меньшей площадью (м²)</button>
+						</div>
 					</div>
 				</div>
 

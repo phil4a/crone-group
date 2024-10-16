@@ -44,16 +44,28 @@
 	&__sort {
 		display: flex;
 		justify-content: space-between;
+		align-items: flex-end;
+		margin-bottom: rem(20);
 	}
 
 	// .list-projects__sort-buttons
 
 	&__sort-buttons {
+		display: flex;
+		gap: rem(20);
 	}
 
 	// .list-projects__sort-button
 
 	&__sort-button {
+		background-color: $lightBeige;
+		padding: rem(12) rem(30);
+		border-radius: rem(8);
+		&_active {
+			background-color: $beigeColor;
+			color: $whiteColor;
+			font-weight: 700;
+		}
 	}
 
 	// .list-projects__sort-alphabetical
@@ -79,8 +91,51 @@
 	&__pagination {
 	}
 }
+
+.list-sort {
+	display: none; /* Скрыт по умолчанию */
+	position: absolute;
+	background-color: white;
+	border: 1px solid #ddd;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	padding: 10px;
+	z-index: 1;
+	border-radius: rem(8);
+}
+
+.list-sort__item {
+	display: block;
+	width: 100%;
+	padding: 8px 12px;
+	background: none;
+	border: none;
+	text-align: left;
+	cursor: pointer;
+}
+
+.list-sort__item:hover {
+	background-color: #f0f0f0;
+}
+
+/* Анимация появления */
+.list-sort[data-show='true'] {
+	display: block;
+	opacity: 0;
+	transform: scale(0.95);
+	transition:
+		opacity 0.2s ease,
+		transform 0.2s ease;
+}
+
+.list-sort[data-show='true'].visible {
+	opacity: 1;
+	transform: scale(1);
+}
+
 .alphabet-sort {
 	display: flex;
+	align-items: center;
+	gap: rem(8);
 	// .alphabet-sort__title
 
 	&__title {
