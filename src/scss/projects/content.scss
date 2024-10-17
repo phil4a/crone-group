@@ -93,43 +93,24 @@
 }
 
 .list-sort {
-	display: none; /* Скрыт по умолчанию */
-	position: absolute;
-	background-color: white;
-	border: 1px solid #ddd;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	padding: 10px;
 	z-index: 1;
 	border-radius: rem(8);
-}
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
 
-.list-sort__item {
-	display: block;
-	width: 100%;
-	padding: 8px 12px;
-	background: none;
-	border: none;
-	text-align: left;
-	cursor: pointer;
-}
+	&__item {
+		padding: rem(8) rem(16);
+		width: 100%;
+		text-align: left;
+		transition: background-color 0.3s ease 0s;
 
-.list-sort__item:hover {
-	background-color: #f0f0f0;
-}
-
-/* Анимация появления */
-.list-sort[data-show='true'] {
-	display: block;
-	opacity: 0;
-	transform: scale(0.95);
-	transition:
-		opacity 0.2s ease,
-		transform 0.2s ease;
-}
-
-.list-sort[data-show='true'].visible {
-	opacity: 1;
-	transform: scale(1);
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: $lightBeige;
+			}
+		}
+	}
 }
 
 .alphabet-sort {
