@@ -69,7 +69,10 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-end;
-		margin-bottom: rem(20);
+		margin-bottom: rem(40);
+		@media (min-width: $mobile) {
+			margin-bottom: rem(40);
+		}
 	}
 
 	// .list-projects__sort-buttons
@@ -83,8 +86,12 @@
 
 	&__sort-button {
 		background-color: $lightBeige;
-		padding: rem(12) rem(30);
+		padding: rem(12) rem(24);
 		border-radius: rem(8);
+		@media (min-width: em(1310)) {
+			padding: rem(12) rem(30);
+		}
+
 		&_active {
 			background-color: $beigeColor;
 			color: $whiteColor;
@@ -101,8 +108,12 @@
 
 	&__list {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		// grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 		gap: rem(20);
+		@media (min-width: em(1330)) {
+			grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+		}
 	}
 
 	// .list-projects__card
@@ -139,8 +150,13 @@
 
 .alphabet-sort {
 	display: flex;
-	align-items: center;
+	flex-direction: column;
+	align-items: flex-end;
 	gap: rem(8);
+	@media (min-width: em(1330)) {
+		flex-direction: row;
+		align-items: center;
+	}
 	// .alphabet-sort__title
 
 	&__title {
@@ -149,6 +165,7 @@
 	// .alphabet-sort__checked
 
 	&__checked {
+		text-align: right;
 	}
 }
 
@@ -236,7 +253,9 @@
 	// .projects-card__chars
 	&__chars {
 		display: flex;
-		gap: rem(32);
+		column-gap: rem(32);
+		row-gap: rem(10);
+		flex-wrap: wrap;
 	}
 
 	// .projects-card__char
