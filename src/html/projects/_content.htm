@@ -5,7 +5,97 @@
 		</div>
 
 		<div class="projects__body">
-			<div class="projects__filters">Фильтры</div>
+			<div data-sticky data-sticky-header data-sticky-top="40" class="projects__filters">
+				<form data-sticky-item class="projects__form" action="">
+					<div class="projects__filter filter-project">
+						<h5 class="h5 filter-project__title">Площадь</h5>
+						<div class="filter-project__range" id="filter-areas"></div>
+						<div class="filter-project__inputs">
+							<div class="filter-project__from">
+								<input
+									autocomplete="off"
+									type="number"
+									name="form[]"
+									data-error="Ошибка"
+									placeholder=""
+									id="filter-areas-start" />
+								<label for="filter-areas-start"></label>
+							</div>
+							—
+							<div class="filter-project__to">
+								<input
+									autocomplete="off"
+									type="number"
+									name="form[]"
+									data-error="Ошибка"
+									placeholder=""
+									id="filter-areas-end" />
+								<label for="filter-areas-end"></label>
+							</div>
+						</div>
+					</div>
+					<div class="projects__filter filter-project">
+						<h5 class="h5 filter-project__title">Этажность</h5>
+						<div class="filter-project__checkboxes">
+							<div class="checkbox filter-project__checkbox">
+								<input
+									type="checkbox"
+									name="form[]"
+									data-error="Ошибка"
+									placeholder=""
+									id="filter-stages-1" />
+								<label for="filter-stages-1">1</label>
+							</div>
+							<div class="checkbox filter-project__checkbox">
+								<input
+									type="checkbox"
+									name="form[]"
+									data-error="Ошибка"
+									placeholder=""
+									id="filter-stages-2" />
+								<label for="filter-stages-2">2</label>
+							</div>
+							<div class="checkbox filter-project__checkbox">
+								<input
+									type="checkbox"
+									name="form[]"
+									data-error="Ошибка"
+									placeholder=""
+									id="filter-stages-3" />
+								<label for="filter-stages-3">3</label>
+							</div>
+						</div>
+					</div>
+					<div class="projects__filter filter-project">
+						<h5 class="h5 filter-project__title">Количество комнат</h5>
+						<div class="filter-project__range" id="filter-rooms"></div>
+						<div class="filter-project__inputs">
+							<div class="filter-project__from">
+								<input
+									autocomplete="off"
+									type="number"
+									name="form[]"
+									data-error="Ошибка"
+									placeholder=""
+									id="filter-rooms-start" />
+								<label for="filter-rooms-start"></label>
+							</div>
+							—
+							<div class="filter-project__to">
+								<input
+									autocomplete="off"
+									type="number"
+									name="form[]"
+									data-error="Ошибка"
+									placeholder=""
+									id="filter-rooms-end" />
+								<label for="filter-rooms-end"></label>
+							</div>
+						</div>
+					</div>
+					<button class="button filter-project__button">Показать</button>
+				</form>
+			</div>
 			<div class="projects__list list-projects">
 				<div class="list-projects__sort">
 					<div class="list-projects__sort-buttons">

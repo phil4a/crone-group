@@ -1,7 +1,7 @@
 // Подключение функционала "Чертогов Фрилансера"
-import { isMobile, getHash } from "../functions.js";
+import { isMobile, getHash } from '../functions.js';
 // Модуль прокрутки к блоку
-import { gotoBlock } from "./gotoblock.js";
+import { gotoBlock } from './gotoblock.js';
 // Переменная контроля добавления события window scroll.
 let addWindowScrollEvent = false;
 //====================================================================================================================================================================================================================================================================================================
@@ -12,12 +12,12 @@ export function pageNavigation() {
 	// data-goto-top - недокрутить на указанный размер
 	// data-goto-speed - скорость (только если используется доп плагин)
 	// Работаем при клике на пункт
-	document.addEventListener("click", pageNavigationAction);
+	document.addEventListener('click', pageNavigationAction);
 	// Если подключен scrollWatcher, подсвечиваем текущий пукт меню
-	document.addEventListener("watcherCallback", pageNavigationAction);
+	document.addEventListener('watcherCallback', pageNavigationAction);
 	// Основная функция
 	function pageNavigationAction(e) {
-		if (e.type === "click") {
+		if (e.type === 'click') {
 			const targetElement = e.target;
 			if (targetElement.closest('[data-goto]')) {
 				const gotoLink = targetElement.closest('[data-goto]');
@@ -28,7 +28,7 @@ export function pageNavigation() {
 				gotoBlock(gotoLinkSelector, noHeader, gotoSpeed, offsetTop);
 				e.preventDefault();
 			}
-		} else if (e.type === "watcherCallback" && e.detail) {
+		} else if (e.type === 'watcherCallback' && e.detail) {
 			const entry = e.detail.entry;
 			const targetElement = entry.target;
 			// Обработка пунктов навигации, если указано значение navigator подсвечиваем текущий пукт меню
@@ -77,7 +77,7 @@ export function headerScroll() {
 	const startPoint = header.dataset.scroll ? header.dataset.scroll : 1;
 	let scrollDirection = 0;
 	let timer;
-	document.addEventListener("windowScroll", function (e) {
+	document.addEventListener('windowScroll', function (e) {
 		const scrollTop = window.scrollY;
 		clearTimeout(timer);
 		if (scrollTop >= startPoint) {
@@ -85,7 +85,9 @@ export function headerScroll() {
 			if (headerShow) {
 				if (scrollTop > scrollDirection) {
 					// downscroll code
-					header.classList.contains('_header-show') ? header.classList.remove('_header-show') : null;
+					header.classList.contains('_header-show')
+						? header.classList.remove('_header-show')
+						: null;
 				} else {
 					// upscroll code
 					!header.classList.contains('_header-show') ? header.classList.add('_header-show') : null;
@@ -95,7 +97,9 @@ export function headerScroll() {
 				}, headerShowTimer);
 			}
 		} else {
-			header.classList.contains('_header-scroll') ? header.classList.remove('_header-scroll') : null;
+			header.classList.contains('_header-scroll')
+				? header.classList.remove('_header-scroll')
+				: null;
 			if (headerShow) {
 				header.classList.contains('_header-show') ? header.classList.remove('_header-show') : null;
 			}
@@ -114,13 +118,17 @@ export function stickyBlock() {
 	function stickyBlockInit() {
 		const stickyParents = document.querySelectorAll('[data-sticky]');
 		if (stickyParents.length) {
-			stickyParents.forEach(stickyParent => {
+			stickyParents.forEach((stickyParent) => {
 				let stickyConfig = {
 					media: stickyParent.dataset.sticky ? parseInt(stickyParent.dataset.sticky) : null,
 					top: stickyParent.dataset.stickyTop ? parseInt(stickyParent.dataset.stickyTop) : 0,
-					bottom: stickyParent.dataset.stickyBottom ? parseInt(stickyParent.dataset.stickyBottom) : 0,
-					header: stickyParent.hasAttribute('data-sticky-header') ? document.querySelector('header.header').offsetHeight : 0
-				}
+					bottom: stickyParent.dataset.stickyBottom
+						? parseInt(stickyParent.dataset.stickyBottom)
+						: 0,
+					header: stickyParent.hasAttribute('data-sticky-header')
+						? document.querySelector('header.header').offsetHeight
+						: 0,
+				};
 				stickyBlockItem(stickyParent, stickyConfig);
 			});
 		}
@@ -131,18 +139,22 @@ export function stickyBlock() {
 		const offsetTop = headerHeight + stickyConfig.top;
 		const startPoint = stickyBlockItem.getBoundingClientRect().top + scrollY - offsetTop;
 
-		document.addEventListener("windowScroll", stickyBlockActions);
+		document.addEventListener('windowScroll', stickyBlockActions);
 		//window.addEventListener("resize", stickyBlockActions);
 
 		function stickyBlockActions(e) {
-			const endPoint = (stickyParent.offsetHeight + stickyParent.getBoundingClientRect().top + scrollY) - (offsetTop + stickyBlockItem.offsetHeight + stickyConfig.bottom);
+			const endPoint =
+				stickyParent.offsetHeight +
+				stickyParent.getBoundingClientRect().top +
+				scrollY -
+				(offsetTop + stickyBlockItem.offsetHeight + stickyConfig.bottom);
 			let stickyItemValues = {
-				position: "relative",
-				bottom: "auto",
-				top: "0px",
-				left: "0px",
-				width: "auto"
-			}
+				position: 'relative',
+				bottom: 'auto',
+				top: '0px',
+				left: '0px',
+				width: 'auto',
+			};
 			if (!stickyConfig.media || stickyConfig.media < window.innerWidth) {
 				if (offsetTop + stickyConfig.bottom + stickyBlockItem.offsetHeight < window.innerHeight) {
 					if (scrollY >= startPoint && scrollY <= endPoint) {
@@ -171,8 +183,8 @@ export function stickyBlock() {
 // При подключении модуля обработчик события запустится автоматически
 setTimeout(() => {
 	if (addWindowScrollEvent) {
-		let windowScroll = new Event("windowScroll");
-		window.addEventListener("scroll", function (e) {
+		let windowScroll = new Event('windowScroll');
+		window.addEventListener('scroll', function (e) {
 			document.dispatchEvent(windowScroll);
 		});
 	}

@@ -1,8 +1,11 @@
 .projects {
+	position: relative;
 	@include sectionPadding;
+
 	// .projects__container
 
 	&__container {
+		position: relative;
 	}
 
 	// .projects__heading
@@ -20,19 +23,40 @@
 	&__body {
 		padding: rem(48) 0 rem(100) 0;
 		display: flex;
-		gap: rem(20);
+
+		position: relative;
+		width: 100%;
+		// gap: rem(20);
+		@include adaptiveValue('gap', 60, 20, 1920, 1120, 1);
 	}
 
 	// .projects__filters
 
 	&__filters {
-		flex: 0 0 25%;
+		position: relative;
+		flex: 0 0 rem(320);
+		width: rem(320);
+		display: flex;
+		flex-direction: column;
+		gap: rem(32);
+	}
+
+	&__form {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		gap: rem(32);
+		width: 100%;
+	}
+
+	// .projects__filter
+
+	&__filter {
 	}
 
 	// .projects__list
 
 	&__list {
-		flex: 1 1 auto;
 	}
 }
 
@@ -127,6 +151,7 @@
 	&__checked {
 	}
 }
+
 .project-card {
 	display: flex;
 	flex-direction: column;
@@ -240,8 +265,6 @@
 	}
 }
 
-.projects-card {
-}
 .pagination {
 	// .pagination__button
 
@@ -250,5 +273,74 @@
 
 		&_active {
 		}
+	}
+}
+
+.filter-project {
+	// .filter-project__title
+
+	&__title {
+		margin-bottom: rem(20);
+	}
+
+	// .filter-project__range
+
+	&__range {
+		margin: 0 rem(7);
+	}
+
+	// .filters-project__inputs
+
+	&__inputs {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: rem(20);
+		input {
+			display: flex;
+			justify-content: center;
+			text-align: center;
+			color: #1e1e1e;
+			border-radius: rem(8);
+			border: rem(1) solid #1e1e1e43;
+			padding: rem(13) rem(0);
+			max-width: rem(140);
+		}
+	}
+
+	// .filters-project__from
+
+	&__from {
+		margin-right: rem(8);
+	}
+
+	// .filters-project__to
+
+	&__to {
+		margin-left: rem(8);
+	}
+
+	// .filter-project__checkboxes
+
+	&__checkboxes {
+		display: flex;
+		flex-direction: column;
+		gap: rem(20);
+	}
+
+	// .filter-project__checkbox
+
+	&__checkbox {
+		display: flex;
+		align-self: flex-start;
+		gap: rem(4);
+		input {
+			flex: 0 0 rem(24);
+		}
+	}
+
+	// .filter-project__button
+
+	&__button {
 	}
 }

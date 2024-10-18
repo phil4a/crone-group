@@ -72,6 +72,7 @@
 	"dependencies": {
 		"@googlemaps/js-api-loader": "^1.16.8",
 		"gsap": "^3.12.5",
-		"simplebar": "latest"
+		"simplebar": "latest",
+		"wnumb": "^1.2.0"
 	}
 }

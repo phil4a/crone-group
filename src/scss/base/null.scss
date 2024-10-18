@@ -69,3 +69,8 @@ h6 {
 	font-weight: inherit;
 	font-size: inherit;
 }
+
+input:focus-visible,
+textarea:focus-visible {
+	outline: 1px solid $beigeColor;
+}

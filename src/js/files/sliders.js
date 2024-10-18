@@ -290,10 +290,6 @@ function initSliders() {
 			});
 		});
 	}
-	if (document.querySelector('.project-card__slider')) {
-		// Указываем скласс нужного слайдера
-		// Создаем слайдер
-	}
 }
 // Скролл на базе слайдера (по классу swiper_scroll для оболочки слайдера)
 function initSlidersScroll() {
