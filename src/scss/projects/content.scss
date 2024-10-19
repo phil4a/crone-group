@@ -1,8 +1,7 @@
 .projects {
-	@include sectionPadding;
+	@include firstSectionPadding;
 
 	// .projects__container
-
 	&__container {
 	}
 
@@ -24,10 +23,11 @@
 		flex-direction: column;
 		position: relative;
 		width: 100%;
-		// gap: rem(20);
-		@include adaptiveValue('gap', 60, 20, 1920, 1120, 1);
+		gap: rem(30);
 		@media (min-width: $tablet) {
 			flex-direction: row;
+
+			@include adaptiveValue('gap', 60, 20, 1920, 1120, 1);
 		}
 	}
 
@@ -37,14 +37,28 @@
 		position: fixed;
 		display: flex;
 		flex-direction: column;
-		padding: rem(30) rem(40);
+		padding: rem(20);
 		top: 0;
-		left: -200%;
+		left: -100%;
 		height: 100vh;
-		max-width: rem(400);
+		width: 100vw;
+
 		background-color: $whiteColor;
 		transition: left 0.3s ease 0s;
-		z-index: 3;
+		z-index: 2;
+		@media (min-width: $mobileSmall) {
+			position: fixed;
+			display: flex;
+			flex-direction: column;
+			padding: rem(30) rem(40);
+			top: 0;
+			left: -100%;
+			height: 100vh;
+			max-width: rem(400);
+			background-color: $whiteColor;
+			transition: left 0.3s ease 0s;
+			z-index: 3;
+		}
 		@media (min-width: $tablet) {
 			position: relative;
 			left: 0;
@@ -60,17 +74,21 @@
 		}
 		.filters-show & {
 			left: 0;
+			box-shadow: 4px 0px 20px 0px rgba(0, 0, 0, 0.2);
 		}
 	}
 	&__filter-heading {
 		display: flex;
 		justify-content: space-between;
+		align-items: flex-end;
+		margin-bottom: rem(40);
 		@media (min-width: $tablet) {
 			display: none;
 		}
 	}
 
 	&__form {
+		flex: 0 1 auto;
 		position: relative;
 		display: flex;
 		flex-direction: column;
@@ -366,10 +384,16 @@
 			border-radius: rem(8);
 			border: rem(1) solid #1e1e1e43;
 			padding: rem(13) rem(0);
-			max-width: rem(140);
+			width: 100%;
 		}
 	}
 
+	&__from,
+	&__to {
+		flex: 1 1 rem(140);
+		display: flex;
+		align-items: center;
+	}
 	// .filters-project__from
 
 	&__from {
@@ -404,5 +428,7 @@
 	// .filter-project__button
 
 	&__button {
+		max-height: rem(56);
+		flex: 1 1 auto;
 	}
 }

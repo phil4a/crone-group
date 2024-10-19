@@ -7,8 +7,7 @@
 	transition: all 0.5s ease 0s;
 	&._header-scroll {
 		position: fixed;
-
-		// backdrop-filter: saturate(180%) blur(5px);
+		// backdrop-filter: blur(8px);
 		background: hsla(0, 0%, 50%, 0.8);
 		top: 0;
 		.header__container {
@@ -28,7 +27,7 @@
 			background-color 0.5s,
 			color 0.5s,
 			padding 0.5s box-shadow 0.5s;
-		// backdrop-filter: saturate(180%) blur(5px);
+		// backdrop-filter: blur(8px);
 		background: hsla(0, 0%, 100%, 0.8);
 		color: $mainColor;
 		border-bottom: rem(1) solid $lightBeige;
