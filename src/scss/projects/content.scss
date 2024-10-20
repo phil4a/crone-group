@@ -371,12 +371,32 @@
 }
 
 .pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: rem(16);
+	padding-top: rem(24);
+	@media (min-width: $mobile) {
+		padding-top: rem(30);
+	}
+	@media (min-width: $tablet) {
+		padding-top: rem(40);
+	}
 	// .pagination__button
 
 	&__button {
+		flex: 0 0 rem(30);
+		height: rem(30);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $brownColor;
+		border-radius: rem(8);
 		// .pagination__button_active
 
 		&_active {
+			background-color: $lightBeige;
 		}
 	}
 }
