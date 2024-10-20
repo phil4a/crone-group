@@ -7,10 +7,12 @@
 	transition: all 0.5s ease 0s;
 	&._header-scroll {
 		position: fixed;
-		// backdrop-filter: blur(8px);
+
 		background: hsla(0, 0%, 50%, 0.8);
+
 		top: 0;
 		.header__container {
+			backdrop-filter: blur(8px);
 			padding: rem(8) rem(20);
 			@media (min-width: $mobile) {
 				padding: rem(8) rem(40);
@@ -27,8 +29,8 @@
 			background-color 0.5s,
 			color 0.5s,
 			padding 0.5s box-shadow 0.5s;
-		// backdrop-filter: blur(8px);
 		background: hsla(0, 0%, 100%, 0.8);
+
 		color: $mainColor;
 		border-bottom: rem(1) solid $lightBeige;
 		svg {

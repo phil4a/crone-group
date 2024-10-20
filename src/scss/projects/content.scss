@@ -34,6 +34,7 @@
 	// .projects__filters
 
 	&__filters {
+		flex: 1 1 auto;
 		position: fixed;
 		display: flex;
 		flex-direction: column;
@@ -47,8 +48,6 @@
 		transition: left 0.3s ease 0s;
 		z-index: 2;
 		@media (min-width: $mobileSmall) {
-			position: fixed;
-			display: flex;
 			flex-direction: column;
 			padding: rem(30) rem(40);
 			top: 0;
@@ -90,10 +89,14 @@
 	&__form {
 		flex: 0 1 auto;
 		position: relative;
+		left: auto !important;
+		left: auto !important;
 		display: flex;
 		flex-direction: column;
 		gap: rem(32);
-		width: 100%;
+		// width: 100%;
+		@media (min-width: $tablet) {
+		}
 	}
 
 	// .projects__filter
@@ -108,6 +111,7 @@
 }
 
 .list-projects {
+	flex: 1 1 auto;
 	display: flex;
 	flex-direction: column;
 	// .list-projects__sort
@@ -135,7 +139,14 @@
 
 	&__sort-buttons {
 		display: flex;
+		overflow-x: auto;
+		flex-wrap: nowrap;
+		white-space: nowrap;
 		gap: rem(20);
+		padding-bottom: rem(12);
+		@media (min-width: $tablet) {
+			padding-bottom: rem(0);
+		}
 	}
 
 	// .list-projects__sort-button
@@ -144,6 +155,7 @@
 		background-color: $lightBeige;
 		padding: rem(12) rem(24);
 		border-radius: rem(8);
+		color: $brownColor;
 		@media (min-width: em(1310)) {
 			padding: rem(12) rem(30);
 		}
@@ -195,7 +207,9 @@
 		width: 100%;
 		text-align: left;
 		transition: background-color 0.3s ease 0s;
-
+		&._active {
+			background-color: $lightBeige;
+		}
 		@media (any-hover: hover) {
 			&:hover {
 				background-color: $lightBeige;
@@ -205,18 +219,28 @@
 }
 
 .alphabet-sort {
-	display: flex;
-
-	flex-direction: row;
-	align-items: center;
-	gap: rem(8);
-	@media (min-width: $tablet) {
-		flex-direction: column;
-		align-items: flex-end;
+	&__desktop {
+		display: none;
+		@media (min-width: $mobileSmall) {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: rem(8);
+			@media (min-width: $tablet) {
+				flex-direction: column;
+				align-items: flex-end;
+			}
+			@media (min-width: em(1330)) {
+				flex-direction: row;
+				align-items: center;
+			}
+		}
 	}
-	@media (min-width: em(1330)) {
-		flex-direction: row;
-		align-items: center;
+	&__mobile {
+		display: block;
+		@media (min-width: $mobileSmall) {
+			display: none;
+		}
 	}
 	// .alphabet-sort__title
 
@@ -226,6 +250,7 @@
 	// .alphabet-sort__checked
 
 	&__checked {
+		-webkit-tap-highlight-color: transparent;
 		text-align: right;
 	}
 }
