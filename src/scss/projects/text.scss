@@ -1,0 +1,38 @@
+.projects-text {
+	padding: rem(64) 0;
+	@media (min-width: $mobile) {
+		padding: rem(80) 0;
+	}
+	@media (min-width: $tablet) {
+		padding: rem(100) 0;
+	}
+	// .projects-text__container
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		@include adaptiveValue('gap', 60, 20, 1920, 1120, 1);
+		@media (min-width: $tablet) {
+			flex-direction: row;
+		}
+	}
+
+	// .projects-text__title
+
+	&__title {
+		flex: 1 1 auto;
+		@media (min-width: $tablet) {
+			flex: 0 0 rem(320);
+		}
+	}
+
+	// .projects-text__text
+
+	&__text {
+		p {
+			&:not(:last-child) {
+				margin-bottom: rem(16);
+			}
+		}
+	}
+}

@@ -1,5 +1,6 @@
 // Заголовки, общие БЄМ блоки и проче...
 @use 'sass:color';
+@use 'sass:math';
 
 .title {
 	font-family: $fontFamily;
@@ -121,4 +122,21 @@
 	border-radius: rem(8);
 	padding: rem(4) rem(12);
 	line-height: 140%;
+}
+
+//tippy customize
+.tippy-box[data-theme~='crone'] {
+	background-color: #fff;
+	color: #000;
+	box-shadow: 2px 2px 8px 0px rgba(143, 143, 143, 0.2);
+	> .tippy-content {
+		padding: 0;
+	}
+}
+.tip-template {
+	// max-width: rem(280);
+
+	&[data-inertia][data-state='visible'] {
+		transition-timing-function: cubic-bezier(0.29, 1.01, 1, -0.68);
+	}
 }

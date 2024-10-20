@@ -1,8 +1,6 @@
 .checkbox {
 	position: relative;
-	&:not(:last-child) {
-		margin-bottom: em(5);
-	}
+
 	// .checkbox__input
 	&__input {
 		position: absolute;
@@ -24,7 +22,7 @@
 		position: relative;
 		gap: 10px;
 		&:before {
-			content: "";
+			content: '';
 			align-self: flex-start;
 			flex: 0 0 20px;
 			width: 20px;

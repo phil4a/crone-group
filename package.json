@@ -59,7 +59,7 @@
 		"style-loader": "latest",
 		"swiper": "latest",
 		"terser-webpack-plugin": "latest",
-		"tippy.js": "latest",
+		"tippy.js": "^6.3.7",
 		"transform-runtime": "0.0.0",
 		"vanilla-lazyload": "latest",
 		"vinyl-ftp": "latest",
@@ -72,6 +72,7 @@
 	"dependencies": {
 		"@googlemaps/js-api-loader": "^1.16.8",
 		"gsap": "^3.12.5",
-		"simplebar": "latest"
+		"simplebar": "latest",
+		"wnumb": "^1.2.0"
 	}
 }
