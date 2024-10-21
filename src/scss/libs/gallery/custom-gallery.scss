@@ -1,0 +1,23 @@
+.custom-gallery {
+	.lg-outer .lg-thumb-item.active,
+	.lg-outer .lg-thumb-item:hover {
+		border-color: #e1b286;
+	}
+	.lg-backdrop {
+		background-color: rgba(255, 255, 255, 0.95);
+	}
+	.lg-outer .lg-thumb-outer {
+		background-color: #ffffff;
+	}
+	.lg-icon {
+		color: #474747;
+
+		&:hover {
+			color: #000000;
+		}
+	}
+	.lg-next,
+	.lg-prev {
+		background: transparent;
+	}
+}

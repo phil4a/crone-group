@@ -71,6 +71,7 @@
 	},
 	"dependencies": {
 		"@googlemaps/js-api-loader": "^1.16.8",
+		"flickr-justified-gallery": "^2.2.0",
 		"gsap": "^3.12.5",
 		"simplebar": "latest",
 		"wnumb": "^1.2.0"

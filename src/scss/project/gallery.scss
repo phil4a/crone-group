@@ -1,0 +1,41 @@
+.gallery {
+	padding-top: rem(64);
+
+	@media (min-width: $mobile) {
+		padding-top: rem(80);
+	}
+	@media (min-width: $tablet) {
+		padding-top: rem(100);
+	}
+	&__container {
+	}
+
+	&__header {
+	}
+
+	&__title {
+		margin-bottom: rem(24);
+		@media (min-width: $mobile) {
+			margin-bottom: rem(32);
+		}
+	}
+
+	&__body {
+	}
+
+	&__item {
+		cursor: pointer;
+		border-radius: rem(8);
+		img {
+			border-radius: rem(8);
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+			vertical-align: middle;
+		}
+	}
+}
+
+.gallery:last-of-type {
+	padding-bottom: 100px;
+}
