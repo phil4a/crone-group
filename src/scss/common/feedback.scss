@@ -1,6 +1,13 @@
 .feedback {
+	margin-top: rem(80);
 	padding: rem(64) 0 rem(80) 0;
 	background-color: $lightBeige;
+	@media (min-width: $mobile) {
+		margin-top: rem(100);
+	}
+	@media (min-width: $tablet) {
+		margin-top: rem(150);
+	}
 	&__container {
 		display: flex;
 		flex-direction: column;

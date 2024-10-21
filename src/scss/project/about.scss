@@ -1,0 +1,119 @@
+.about-project {
+	&__container {
+	}
+	&__body {
+		display: flex;
+		gap: rem(30);
+		flex-direction: column;
+		padding: rem(64) 0 0 0;
+		@media (min-width: $mobile) {
+			padding: rem(80) 0 0 0;
+			gap: rem(40);
+		}
+		@media (min-width: $tablet) {
+			gap: rem(20);
+			flex-direction: row;
+			padding: rem(100) 0 0 0;
+		}
+	}
+
+	&__description {
+	}
+
+	&__params {
+		flex: 0 0 auto;
+	}
+}
+.project-description {
+	@include adaptiveValue('padding-right', 148, 40, 1920, 1120);
+	&__title {
+		margin-bottom: rem(20);
+		@media (min-width: $mobile) {
+			margin-bottom: rem(24);
+		}
+	}
+
+	&__text {
+		p {
+			&:not(:last-child) {
+				margin-bottom: rem(16);
+			}
+		}
+	}
+}
+
+.project-params {
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		column-gap: rem(20);
+		@media (min-width: $mobileSmall) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@media (min-width: $tablet) {
+			grid-template-columns: repeat(2, rem(266));
+		}
+	}
+
+	&__item {
+		display: flex;
+		gap: rem(16);
+		padding: rem(16) rem(8);
+		border-top: rem(1) solid #61413762;
+		&:last-child {
+			border-bottom: rem(1) solid #61413762;
+		}
+		&:nth-last-child(2) {
+			border-bottom: none;
+			@media (min-width: $mobileSmall) {
+				border-bottom: rem(1) solid #61413762;
+			}
+		}
+
+		&_area {
+		}
+
+		&_floor {
+		}
+
+		&_rooms {
+		}
+
+		&_bedrooms {
+		}
+
+		&_bathrooms {
+		}
+
+		&_terrace {
+		}
+
+		&_garage {
+		}
+
+		&_sauna {
+		}
+	}
+
+	&__icon {
+		flex: 0 0 auto;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background-color: $beigeColor;
+		width: rem(48);
+		height: rem(48);
+		border-radius: rem(4);
+	}
+
+	&__param {
+	}
+
+	&__title {
+	}
+
+	&__value {
+	}
+}
+.h5 {
+}
