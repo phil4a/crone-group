@@ -1,0 +1,25 @@
+.back-to-projects {
+	padding: rem(40) 0 rem(80) 0;
+
+	@media (min-width: $mobile) {
+		padding: rem(64) 0 rem(80) 0;
+	}
+	@media (min-width: $tablet) {
+		padding: rem(100) 0;
+	}
+	&__container {
+	}
+
+	&__link {
+		padding: rem(12) rem(30);
+		display: inline-flex;
+		gap: rem(10);
+		align-items: center;
+		font-weight: 600;
+		border-radius: rem(8);
+		text-transform: uppercase;
+		@media (min-width: $mobile) {
+			padding: rem(15) rem(30);
+		}
+	}
+}
