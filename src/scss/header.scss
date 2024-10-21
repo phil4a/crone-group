@@ -8,11 +8,12 @@
 	&._header-scroll {
 		position: fixed;
 
-		background: hsla(0, 0%, 50%, 0.8);
-
+		background: hsla(0, 0%, 0%, 0.15);
+		backdrop-filter: blur(4px);
+		padding: 0 rem(2);
 		top: 0;
+
 		.header__container {
-			backdrop-filter: blur(8px);
 			padding: rem(8) rem(20);
 			@media (min-width: $mobile) {
 				padding: rem(8) rem(40);
